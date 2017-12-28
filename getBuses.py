@@ -40,5 +40,5 @@ services2 = data['value']
 services = services1 + services2
 
 for service in services:
-	print "Bus Service " + str(service['ServiceNo'])
+	print str(service['ServiceNo'])
 
