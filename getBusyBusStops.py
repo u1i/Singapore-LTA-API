@@ -33,6 +33,7 @@ for stop in stops:
 	for s in data["Services"]:
 		aservice={}
 		l = s["NextBus"]["Load"]
+		eta = s["NextBus"]["EstimatedArrival"]
 		aservice["service"] = s["ServiceNo"]
 		aservice["load"] = l
 		astop["services"].append(aservice)
