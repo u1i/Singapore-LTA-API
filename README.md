@@ -16,4 +16,4 @@ AccountKey="WW91cktleTEyQ1Njc4=="
 
 5 - test the scripts
 
-
+![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
