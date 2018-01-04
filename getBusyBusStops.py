@@ -33,7 +33,7 @@ for stop in stops:
 	for s in data["Services"]:
 		aservice={}
 		l = s["NextBus"]["Load"]
-		eta = s["NextBus"]["EstimatedArrival"]
+		eta = s["NextBus"]["EstimatedArrival"].replace("+08:00","")
 		aservice["service"] = s["ServiceNo"]
 		aservice["load"] = l
 		aservice["eta"] = eta
