@@ -3,6 +3,7 @@ import pycurl
 from StringIO import StringIO
 from datetime import datetime
 import calendar
+import pytz
 
 endpoint="http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2"
 
@@ -41,7 +42,7 @@ for stop in stops:
 	astop["level"] = "green"
 
 	if "SDA" in levels:
-		astop["level"] = "yellow"
+		astop["level"] = "orange"
 
 	if "LSD" in levels:
 		astop["level"] = "red"
@@ -49,7 +50,7 @@ for stop in stops:
 	alert_stops.append(astop)
 
 print "stopsWithLoads = " + str(alert_stops)
-print "singapore_timestamp = " + '"' + str(datetime.now()) + '"'
+print "singapore_timestamp = " + '"' + str(datetime.now(pytz.timezone('Asia/Singapore'))) + '"'
 
 d = datetime.utcnow()
 unixtime = calendar.timegm(d.utctimetuple())

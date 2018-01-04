@@ -1,1 +1,1 @@
-python getBusyBusStops.py > busStopsWithLoads-$(date +%s).cfg
+python getBusyBusStops.py > busStopsWithLoads.cfg
