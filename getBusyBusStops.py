@@ -36,6 +36,7 @@ for stop in stops:
 		eta = s["NextBus"]["EstimatedArrival"]
 		aservice["service"] = s["ServiceNo"]
 		aservice["load"] = l
+		aservice["eta"] = eta
 		astop["services"].append(aservice)
 
 		levels.append(l)
