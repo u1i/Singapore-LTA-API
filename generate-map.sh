@@ -15,3 +15,7 @@ google=$(cat googlemaps-key.inc)
 cp map-1.html $out
 cat inserts.inc >> $out
 cat map-2.html | sed "s/GOOGLE_KEY/$google/;" >> $out
+
+# regenrate the index document in the 'out' dir
+./generate-index.sh
+
