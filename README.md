@@ -14,6 +14,8 @@ Example:
 
 AccountKey="WW91cktleTEyQ1Njc4=="
 
+for Google Maps take a note of your key ID and put it in a file called googlemaps-key.inc
+
 5 - test the scripts
 
 ![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
