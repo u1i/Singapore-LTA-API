@@ -1,5 +1,12 @@
 # Experimenting with Singapore LTA APIs
 
+Using open data from Land Transport Authority (LTA) to find out which bus stops at a given time are very popular and result in packed bus services.
+
+Here are the [data snapshots](http://lta.sotong.io/out/) on Google Maps
+
+## How to ?
+![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
+
 1 - Request access on the [LTA website](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
 
 2 - Make sure you read the [Terms of Service](https://www.mytransport.sg/content/mytransport/home/dataMall/apitermsofservice.html)
@@ -18,4 +25,3 @@ for Google Maps take a note of your key ID and put it in a file called googlemap
 
 5 - test the scripts
 
-![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
