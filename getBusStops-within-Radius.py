@@ -39,6 +39,7 @@ for sk in 0,500,1000,1500,2000,2500,3000,3500,4000,4500:
 
 # print stops
 
+relevant_stops=[]	
 for stop in stops:
 	code = stop["BusStopCode"]
 	road = stop["RoadName"]
@@ -50,5 +51,14 @@ for stop in stops:
 
 	if distance < radius:
 		# print code, road, lat, lon, distance
+		rstop = {}
+		rstop["code"] = code
+		rstop["road"] = road
+		rstop["lat"] = lat
+		rstop["lon"] = lon
+		
+		relevant_stops.append(rstop)
 		# print str(lat) + "," + str(lon)
-		print code
+		# print code
+
+print "stops = " + str(relevant_stops)
