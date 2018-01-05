@@ -10,8 +10,8 @@ done
 cd $start/maps
 
 rm index.html
-for d in $(find . | grep html)
+for d in $(ls)
 do
-	echo "<a href='$d' target='_new'>$d</a><br>" >> index.html
+	echo "<a href='$d'>$d</a><br>" >> index.html
 done
 
