@@ -13,7 +13,7 @@ rm $index
 for d in $(ls)
 do
 	echo $d
-	echo "<a href='$d'>$d</a> | " >> $index
+	echo "<h2><a href='$d'>$d</a></h2> | " >> $index
 	cd $start/maps/$d
 
 	rm index.html 2>/dev/null
