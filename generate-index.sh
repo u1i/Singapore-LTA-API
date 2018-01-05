@@ -8,12 +8,12 @@ start=$PWD
 # done
 
 cd $start/maps
-
-rm index.html
+index=$start/maps/index.html
+rm $index
 for d in $(ls)
 do
 	echo $d
-	echo "<a href='$d'>$d</a> | " >> index.html
+	echo "<a href='$d'>$d</a> | " >> $index
 	cd $start/maps/$d
 
 	rm index.html 2>/dev/null
