@@ -10,10 +10,10 @@ start=$PWD
 cd $start/maps
 index=$start/maps/index.html
 rm $index
-for d in $(ls)
+for d in $(ls | tac)
 do
 	echo $d
-	echo "<h2><a href='$d'>$d</a> | </h2>" >> $index
+	echo "<h2><a href='$d'>$d</a></h2>" >> $index
 	cd $start/maps/$d
 
 	rm index.html 2>/dev/null
