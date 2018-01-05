@@ -12,14 +12,15 @@ cd $start/maps
 rm index.html
 for d in $(ls)
 do
+	echo $d
 	echo "<a href='$d'>$d</a> | " >> index.html
 	cd $start/maps/$d
 
 	rm index.html 2>/dev/null
 
-	for d in *html
+	for f in *html
 	do
-		echo "<a href='$d' target='_new'>${d/.html/}</a> | " >> index.html
+		echo "<a href='$f' target='_new'>${f/.html/}</a> | " >> index.html
 	done
 done
 
