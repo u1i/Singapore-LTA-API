@@ -13,14 +13,15 @@ rm $index
 for d in $(ls)
 do
 	echo $d
-	echo "<h2><a href='$d'>$d</a></h2> | " >> $index
+	echo "<h2><a href='$d'>$d</a> | </h2>" >> $index
 	cd $start/maps/$d
 
 	rm index.html 2>/dev/null
 
 	for f in *html
 	do
-		echo "<a href='$f' target='_new'>${f/.html/}</a> | " >> index.html
+		disp=${f/-/:}
+		echo "<a href='$f' target='_new'>${disp/.html/}</a> | " >> index.html
 	done
 done
 
