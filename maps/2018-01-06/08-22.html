@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SG Buses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
+          center: new google.maps.LatLng(1.29667298496, 103.854414225),
+          mapTypeId: 'roadmap'
+        });
+
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png'
+          },
+          bus: {
+            icon: 'http://www2.sotong.io/static/bus.png'
+          },
+          busred: {
+            icon: 'http://www2.sotong.io/static/bus-red.png'
+          },
+          busgreen: {
+            icon: 'http://www2.sotong.io/static/bus-green.png'
+          },
+          busorange: {
+            icon: 'http://www2.sotong.io/static/bus-orange.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+
+
+        var features = [
+
+{ position: new google.maps.LatLng(1.29684825488,103.852535917), type: 'busorange', title: 'Victoria St', text: ' Bus 32 (ETA 2018-01-06T08:27:32) standing only | ' },
+{ position: new google.maps.LatLng(1.2977097061,103.853224746), type: 'busorange', title: 'Victoria St', text: ' Bus 851 (ETA 2018-01-06T08:30:59) standing only | ' },
+{ position: new google.maps.LatLng(1.29667298496,103.854414225), type: 'busorange', title: 'Nth Bridge Rd', text: ' Bus 145 (ETA 2018-01-06T08:29:30) standing only | ' },
+{ position: new google.maps.LatLng(1.2982078414,103.855491398), type: 'busorange', title: 'Nth Bridge Rd', text: ' Bus 145 (ETA 2018-01-06T08:28:04) standing only | ' },
+{ position: new google.maps.LatLng(1.30117297542,103.856114011), type: 'busorange', title: 'Victoria St', text: ' Bus 32 (ETA 2018-01-06T08:30:17) standing only | ' },
+{ position: new google.maps.LatLng(1.30393809691,103.858679992), type: 'busorange', title: 'Victoria St', text: ' Bus 32 (ETA 2018-01-06T08:32:14) standing only | ' },
+{ position: new google.maps.LatLng(1.30033057856,103.857160807), type: 'busorange', title: 'Nth Bridge Rd', text: ' Bus 145 (ETA 2018-01-06T08:26:20) standing only | ' },
+{ position: new google.maps.LatLng(1.30551803523,103.860544952), type: 'busorange', title: 'Victoria St', text: ' Bus 32 (ETA 2018-01-06T08:33:38) standing only | ' },
+{ position: new google.maps.LatLng(1.30337552639,103.859630892), type: 'busorange', title: 'Nth Bridge Rd', text: ' Bus 145 (ETA 2018-01-06T08:24:48) standing only | ' },
+{ position: new google.maps.LatLng(1.30709164634,103.862196952), type: 'busorange', title: 'Kallang Rd', text: ' Bus 32 (ETA 2018-01-06T08:34:22) standing only | ' },
+{ position: new google.maps.LatLng(1.30495670239,103.863630285), type: 'busorange', title: 'Nth Bridge Rd', text: ' Bus 145 (ETA 2018-01-06T08:23:06) standing only | ' },
+{ position: new google.maps.LatLng(1.30774601733,103.864262747), type: 'busorange', title: 'Crawford St', text: ' Bus 145 (ETA 2018-01-06T08:21:30) standing only | ' },
+{ position: new google.maps.LatLng(1.29618544092,103.8495803), type: 'busorange', title: 'Stamford Rd', text: ' Bus 124 (ETA 2018-01-06T08:29:58) standing only | ' },
+{ position: new google.maps.LatLng(1.29309826447,103.849659945), type: 'busorange', title: 'Hill St', text: ' Bus 32 (ETA 2018-01-06T08:25:42) standing only | ' },
+{ position: new google.maps.LatLng(1.29411640848,103.850206069), type: 'busorange', title: 'Hill St', text: ' Bus 124 (ETA 2018-01-06T08:28:24) standing only | ' },
+{ position: new google.maps.LatLng(1.29533777799,103.851139722), type: 'busorange', title: 'Victoria St', text: ' Bus 851 (ETA 2018-01-06T08:29:47) standing only | ' },
+{ position: new google.maps.LatLng(1.29096802755,103.846867778), type: 'busorange', title: 'River Valley Rd', text: ' Bus 32 (ETA 2018-01-06T08:23:30) standing only | ' },
+{ position: new google.maps.LatLng(1.28898962181,103.847089764), type: 'busorange', title: 'Eu Tong Sen St', text: ' Bus 124 (ETA 2018-01-06T08:25:43) standing only |  Bus 851 (ETA 2018-01-06T08:26:53) standing only | ' },
+{ position: new google.maps.LatLng(1.29084476137,103.84857901), type: 'busorange', title: 'Hill St', text: ' Bus 124 (ETA 2018-01-06T08:27:08) standing only |  Bus 851 (ETA 2018-01-06T08:28:20) standing only | ' },
+{ position: new google.maps.LatLng(1.29221099997,103.845005), type: 'busorange', title: 'River Valley Rd', text: ' Bus 32 (ETA 2018-01-06T08:23:08) standing only | ' },
+{ position: new google.maps.LatLng(1.28154583301,103.840877222), type: 'busorange', title: 'Eu Tong Sen St', text: ' Bus 124 (ETA 2018-01-06T08:21:09) standing only |  Bus 851 (ETA 2018-01-06T08:22:35) standing only | ' },
+{ position: new google.maps.LatLng(1.28571089866,103.844372034), type: 'busorange', title: 'Eu Tong Sen St', text: ' Bus 124 (ETA 2018-01-06T08:23:17) standing only |  Bus 851 (ETA 2018-01-06T08:24:35) standing only | ' },
+{ position: new google.maps.LatLng(1.28168237145,103.838756424), type: 'busorange', title: 'Outram Rd', text: ' Bus 851 (ETA 2018-01-06T08:21:10) standing only | ' },
+{ position: new google.maps.LatLng(1.2847485688,103.835177051), type: 'busorange', title: 'Outram Rd', text: ' Bus 121 (ETA 2018-01-06T08:30:28) standing only | ' },
+{ position: new google.maps.LatLng(1.2847598096,103.834056717), type: 'busorange', title: 'Tiong Bahru Rd', text: ' Bus 5 (ETA 2018-01-06T08:24:04) standing only | ' },
+{ position: new google.maps.LatLng(1.2862315772,103.834961624), type: 'busorange', title: 'Outram Rd', text: ' Bus 121 (ETA 2018-01-06T08:29:58) standing only |  Bus 5 (ETA 2018-01-06T08:22:37) standing only | ' },
+{ position: new google.maps.LatLng(1.29078162052,103.834409167), type: 'busorange', title: 'Kim Seng Rd', text: ' Bus 5 (ETA 2018-01-06T08:20:55) standing only | ' },
+{ position: new google.maps.LatLng(1.30097493989,103.852179862), type: 'busorange', title: 'Bencoolen St', text: ' Bus 980 (ETA 2018-01-06T08:35:03) standing only | ' },
+{ position: new google.maps.LatLng(1.30461300741,103.852000972), type: 'busorange', title: 'Sungei Rd', text: ' Bus 980 (ETA 2018-01-06T08:32:31) standing only | ' },
+{ position: new google.maps.LatLng(1.29811014244,103.847806369), type: 'busorange', title: 'Orchard Rd', text: ' Bus 124 (ETA 2018-01-06T08:31:06) standing only | ' },
+{ position: new google.maps.LatLng(1.2993099728,103.845290214), type: 'busorange', title: 'Orchard Rd', text: ' Bus 124 (ETA 2018-01-06T08:28:03) standing only | ' },
+{ position: new google.maps.LatLng(1.29821382251,103.849361284), type: 'busorange', title: 'Bras Basah Rd', text: ' Bus 124 (ETA 2018-01-06T08:30:01) standing only | ' },
+{ position: new google.maps.LatLng(1.30047857308,103.841847006), type: 'busorange', title: 'Orchard Rd', text: ' Bus 124 (ETA 2018-01-06T08:26:29) standing only | ' },
+{ position: new google.maps.LatLng(1.30234004203,103.837012534), type: 'busorange', title: 'Orchard Rd', text: ' Bus 124 (ETA 2018-01-06T08:24:25) standing only | ' },
+{ position: new google.maps.LatLng(1.30154262451,103.838524818), type: 'busorange', title: 'Orchard Rd', text: ' Bus 502 (ETA 2018-01-06T08:34:03) standing only | ' },
+{ position: new google.maps.LatLng(1.30446065207,103.832944672), type: 'busorange', title: 'Orchard Rd', text: ' Bus 124 (ETA 2018-01-06T08:22:37) standing only |  Bus 174 (ETA 2018-01-06T08:32:04) standing only | ' },
+{ position: new google.maps.LatLng(1.30386684425,103.834130701), type: 'busorange', title: 'Orchard Rd', text: ' Bus 502 (ETA 2018-01-06T08:31:34) standing only | ' },
+{ position: new google.maps.LatLng(1.30391999998,103.823338056), type: 'busorange', title: 'Grange Rd', text: ' Bus 105 (ETA 2018-01-06T08:21:41) standing only | ' },
+{ position: new google.maps.LatLng(1.30543500003,103.821776667), type: 'busorange', title: 'Napier Rd', text: ' Bus 105 (ETA 2018-01-06T08:22:52) standing only | ' },
+{ position: new google.maps.LatLng(1.30608981382,103.821221502), type: 'busorange', title: 'Napier Rd', text: ' Bus 174 (ETA 2018-01-06T08:26:57) standing only | ' },
+{ position: new google.maps.LatLng(1.30602637557,103.825680426), type: 'busorange', title: 'Tanglin Rd', text: ' Bus 174 (ETA 2018-01-06T08:28:09) standing only | ' },
+{ position: new google.maps.LatLng(1.30701353263,103.828355073), type: 'busorange', title: 'Orchard Rd', text: ' Bus 174 (ETA 2018-01-06T08:29:20) standing only |  Bus 502 (ETA 2018-01-06T08:27:11) standing only | ' },
+{ position: new google.maps.LatLng(1.30587966241,103.830490046), type: 'busorange', title: 'Orchard Rd', text: ' Bus 174 (ETA 2018-01-06T08:30:18) standing only |  Bus 502 (ETA 2018-01-06T08:29:23) standing only | ' },
+{ position: new google.maps.LatLng(1.30702238422,103.832655227), type: 'busorange', title: 'Scotts Rd', text: ' Bus 5 (ETA 2018-01-06T08:25:08) standing only | ' },
+{ position: new google.maps.LatLng(1.30731999685,103.833160883), type: 'busorange', title: 'Scotts Rd', text: ' Bus 124 (ETA 2018-01-06T08:21:17) standing only |  Bus 5 (ETA 2018-01-06T08:27:33) standing only |  Bus 972 (ETA 2018-01-06T08:29:09) standing only | ' },
+{ position: new google.maps.LatLng(1.2858384714,103.832381799), type: 'busorange', title: 'Tiong Bahru Rd', text: ' Bus 5 (ETA 2018-01-06T08:25:18) standing only | ' },
+{ position: new google.maps.LatLng(1.28572048365,103.828529229), type: 'busorange', title: 'Tiong Bahru Rd', text: ' Bus 121 (ETA 2018-01-06T08:20:13) standing only |  Bus 5 (ETA 2018-01-06T08:27:05) standing only | ' },
+{ position: new google.maps.LatLng(1.28593135446,103.826689692), type: 'busorange', title: 'Tiong Bahru Rd', text: ' Bus 121 (ETA 2018-01-06T08:21:29) standing only |  Bus 5 (ETA 2018-01-06T08:28:24) standing only | ' },
+{ position: new google.maps.LatLng(1.2905213784,103.831781895), type: 'busorange', title: 'Ganges Ave', text: ' Bus 121 (ETA 2018-01-06T08:27:12) standing only | ' },
+{ position: new google.maps.LatLng(1.29061878567,103.828660113), type: 'busorange', title: 'Ganges Ave', text: ' Bus 121 (ETA 2018-01-06T08:25:44) standing only | ' },
+{ position: new google.maps.LatLng(1.28373603377,103.824895209), type: 'busorange', title: 'Lower Delta Rd', text: ' Bus 5 (ETA 2018-01-06T08:29:58) standing only | ' },
+{ position: new google.maps.LatLng(1.28906972187,103.825594117), type: 'busorange', title: 'Lower Delta Rd', text: ' Bus 121 (ETA 2018-01-06T08:23:41) standing only | ' },
+{ position: new google.maps.LatLng(1.30634849184,103.819838226), type: 'busorange', title: 'Napier Rd', text: ' Bus 105 (ETA 2018-01-06T08:23:25) standing only | ' },
+{ position: new google.maps.LatLng(1.30673802172,103.820130799), type: 'busorange', title: 'Napier Rd', text: ' Bus 174 (ETA 2018-01-06T08:25:46) standing only | ' },
+{ position: new google.maps.LatLng(1.30633972997,103.814306708), type: 'busorange', title: 'Holland Rd', text: ' Bus 105 (ETA 2018-01-06T08:25:29) standing only | ' },
+{ position: new google.maps.LatLng(1.30671783282,103.814518588), type: 'busorange', title: 'Holland Rd', text: ' Bus 174 (ETA 2018-01-06T08:23:57) standing only | ' },
+{ position: new google.maps.LatLng(1.29414162679,103.842312098), type: 'busorange', title: 'River Valley Rd', text: ' Bus 32 (ETA 2018-01-06T08:21:15) standing only | ' },
+{ position: new google.maps.LatLng(1.29362677394,103.832838535), type: 'busorange', title: 'Kim Seng Rd', text: ' Bus 5 (ETA 2018-01-06T08:33:23) standing only | ' },
+{ position: new google.maps.LatLng(1.29504261896,103.83205533), type: 'busorange', title: 'Kim Seng Rd', text: ' Bus 5 (ETA 2018-01-06T08:32:41) standing only | ' },
+{ position: new google.maps.LatLng(1.29745598929,103.829963207), type: 'busorange', title: 'Hoot Kiam Rd', text: ' Bus 5 (ETA 2018-01-06T08:21:05) standing only | ' },
+{ position: new google.maps.LatLng(1.29796011529,103.830531836), type: 'busorange', title: 'Irwell Bank Rd', text: ' Bus 5 (ETA 2018-01-06T08:31:29) standing only | ' },
+{ position: new google.maps.LatLng(1.30266053146,103.829877992), type: 'busorange', title: 'Paterson Rd', text: ' Bus 5 (ETA 2018-01-06T08:23:20) standing only | ' },
+{ position: new google.maps.LatLng(1.30229926868,103.829992325), type: 'busorange', title: 'Paterson Rd', text: ' Bus 5 (ETA 2018-01-06T08:29:43) standing only | ' },
+{ position: new google.maps.LatLng(1.27324166755,103.81304232), type: 'busorange', title: 'Henderson Rd', text: ' Bus 145 (ETA 2018-01-06T08:23:28) standing only | ' },
+{ position: new google.maps.LatLng(1.2753748514,103.815143655), type: 'busorange', title: 'Henderson Rd', text: ' Bus 145 (ETA 2018-01-06T08:22:38) standing only | ' },
+{ position: new google.maps.LatLng(1.27261333298,103.836948611), type: 'busorange', title: 'Keppel Rd', text: ' Bus 145 (ETA 2018-01-06T08:32:25) standing only | ' },
+{ position: new google.maps.LatLng(1.27046005042,103.829792773), type: 'busorange', title: 'Keppel Rd', text: ' Bus 145 (ETA 2018-01-06T08:31:25) standing only | ' },
+{ position: new google.maps.LatLng(1.26804601554,103.827224905), type: 'busorange', title: 'Keppel Rd', text: ' Bus 145 (ETA 2018-01-06T08:30:37) standing only | ' },
+{ position: new google.maps.LatLng(1.26592360897,103.82228278), type: 'busorange', title: 'Telok Blangah Rd', text: ' Bus 145 (ETA 2018-01-06T08:28:53) standing only | ' },
+{ position: new google.maps.LatLng(1.26607869102,103.819778774), type: 'busorange', title: 'Telok Blangah Rd', text: ' Bus 145 (ETA 2018-01-06T08:27:39) standing only | ' },
+{ position: new google.maps.LatLng(1.26863527735,103.815469524), type: 'busorange', title: 'Telok Blangah Rd', text: ' Bus 145 (ETA 2018-01-06T08:25:43) standing only |  Bus 963 (ETA 2018-01-06T08:40:12) standing only | ' },
+{ position: new google.maps.LatLng(1.26994046445,103.813154191), type: 'busorange', title: 'Telok Blangah Rd', text: ' Bus 145 (ETA 2018-01-06T08:24:53) standing only |  Bus 963 (ETA 2018-01-06T08:39:21) standing only | ' },
+{ position: new google.maps.LatLng(1.27118550386,103.809418104), type: 'busorange', title: 'Telok Blangah Rd', text: ' Bus 963 (ETA 2018-01-06T08:37:51) standing only | ' },
+{ position: new google.maps.LatLng(1.27947405747,103.817329912), type: 'busorange', title: 'Henderson Rd', text: ' Bus 145 (ETA 2018-01-06T08:21:03) standing only | ' },
+{ position: new google.maps.LatLng(1.3066440446,103.849204167), type: 'busorange', title: 'Bt Timah Rd', text: ' Bus 57 (ETA 2018-01-06T08:31:16) standing only |  Bus 980 (ETA 2018-01-06T08:30:25) standing only | ' },
+{ position: new google.maps.LatLng(1.3094913127,103.847707478), type: 'busorange', title: 'Kg Java Rd', text: ' Bus 57 (ETA 2018-01-06T08:30:17) standing only |  Bus 980 (ETA 2018-01-06T08:29:13) standing only | ' },
+{ position: new google.maps.LatLng(1.3145816493,103.840531903), type: 'busorange', title: 'Newton Rd', text: ' Bus 5 (ETA 2018-01-06T08:29:12) standing only | ' },
+{ position: new google.maps.LatLng(1.31453779264,103.84082845), type: 'busorange', title: 'Newton Rd', text: ' Bus 124 (ETA 2018-01-06T08:24:47) standing only |  Bus 5 (ETA 2018-01-06T08:23:16) standing only | ' },
+{ position: new google.maps.LatLng(1.31095171989,103.835821012), type: 'busorange', title: 'Scotts Rd', text: ' Bus 5 (ETA 2018-01-06T08:27:14) standing only | ' },
+{ position: new google.maps.LatLng(1.31133173991,103.8368695), type: 'busorange', title: 'Scotts Rd', text: ' Bus 124 (ETA 2018-01-06T08:27:20) standing only |  Bus 5 (ETA 2018-01-06T08:26:04) standing only | ' },
+{ position: new google.maps.LatLng(1.31243561231,103.837983413), type: 'busorange', title: 'Scotts Rd', text: ' Bus 5 (ETA 2018-01-06T08:27:53) standing only | ' },
+{ position: new google.maps.LatLng(1.31223181292,103.838160956), type: 'busorange', title: 'Scotts Rd', text: ' Bus 124 (ETA 2018-01-06T08:26:30) standing only |  Bus 5 (ETA 2018-01-06T08:25:00) standing only | ' },
+{ position: new google.maps.LatLng(1.31258333303,103.831912222), type: 'busorange', title: 'Stevens Rd', text: ' Bus 972 (ETA 2018-01-06T08:27:12) standing only | ' },
+{ position: new google.maps.LatLng(1.31388805601,103.827387778), type: 'busorange', title: 'Stevens Rd', text: ' Bus 972 (ETA 2018-01-06T08:25:39) standing only | ' },
+{ position: new google.maps.LatLng(1.3170369801,103.826059543), type: 'busorange', title: 'Stevens Rd', text: ' Bus 190 (ETA 2018-01-06T08:28:53) standing only |  Bus 972 (ETA 2018-01-06T08:24:43) standing only | ' },
+{ position: new google.maps.LatLng(1.31933337975,103.825701096), type: 'busorange', title: 'Stevens Rd', text: ' Bus 190 (ETA 2018-01-06T08:27:48) standing only |  Bus 972 (ETA 2018-01-06T08:23:34) standing only | ' },
+{ position: new google.maps.LatLng(1.31194891032,103.847638562), type: 'busorange', title: 'Keng Lee Rd', text: ' Bus 57 (ETA 2018-01-06T08:28:57) standing only |  Bus 851 (ETA 2018-01-06T08:34:36) standing only |  Bus 980 (ETA 2018-01-06T08:27:57) standing only | ' },
+{ position: new google.maps.LatLng(1.31647941615,103.84484282), type: 'busorange', title: 'Thomson Rd', text: ' Bus 57 (ETA 2018-01-06T08:27:30) standing only |  Bus 851 (ETA 2018-01-06T08:33:13) standing only |  Bus 980 (ETA 2018-01-06T08:26:33) standing only | ' },
+{ position: new google.maps.LatLng(1.32127307293,103.841771724), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:31:19) standing only | ' },
+{ position: new google.maps.LatLng(1.32109968376,103.842243049), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:31:50) standing only | ' },
+{ position: new google.maps.LatLng(1.31962671002,103.843438625), type: 'busorange', title: 'Thomson Rd', text: ' Bus 57 (ETA 2018-01-06T08:25:17) standing only |  Bus 851 (ETA 2018-01-06T08:31:09) standing only |  Bus 980 (ETA 2018-01-06T08:24:20) standing only | ' },
+{ position: new google.maps.LatLng(1.32362333325,103.841615457), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:32:12) standing only | ' },
+{ position: new google.maps.LatLng(1.3235410865,103.841893269), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:31:08) standing only |  Bus 57 (ETA 2018-01-06T08:24:13) standing only |  Bus 851 (ETA 2018-01-06T08:30:09) standing only |  Bus 980 (ETA 2018-01-06T08:23:23) standing only | ' },
+{ position: new google.maps.LatLng(1.32561283343,103.841861487), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:32:41) standing only | ' },
+{ position: new google.maps.LatLng(1.32489453398,103.842117444), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:30:18) standing only |  Bus 57 (ETA 2018-01-06T08:23:25) standing only |  Bus 851 (ETA 2018-01-06T08:29:24) standing only |  Bus 980 (ETA 2018-01-06T08:22:39) standing only | ' },
+{ position: new google.maps.LatLng(1.31743500022,103.841437899), type: 'busorange', title: 'Newton Rd', text: ' Bus 5 (ETA 2018-01-06T08:30:02) standing only | ' },
+{ position: new google.maps.LatLng(1.31702163081,103.841647763), type: 'busorange', title: 'Newton Rd', text: ' Bus 124 (ETA 2018-01-06T08:24:03) standing only |  Bus 5 (ETA 2018-01-06T08:22:25) standing only | ' },
+{ position: new google.maps.LatLng(1.31829503183,103.845818504), type: 'busorange', title: 'Moulmein Rd', text: ' Bus 124 (ETA 2018-01-06T08:21:28) standing only | ' },
+{ position: new google.maps.LatLng(1.31898808801,103.849290285), type: 'busorange', title: 'Moulmein Rd', text: ' Bus 124 (ETA 2018-01-06T08:21:04) standing only | ' },
+{ position: new google.maps.LatLng(1.32770447989,103.840954722), type: 'busorange', title: 'Thomson Rd', text: ' Bus 5 (ETA 2018-01-06T08:33:42) standing only | ' },
+{ position: new google.maps.LatLng(1.31717045698,103.866001368), type: 'busorange', title: 'Kallang Bahru', text: ' Bus 853 (ETA 2018-01-06T08:25:20) standing only | ' },
+{ position: new google.maps.LatLng(1.31996473843,103.869830426), type: 'busorange', title: 'Kallang Bahru', text: ' Bus 853 (ETA 2018-01-06T08:23:56) standing only | ' },
+{ position: new google.maps.LatLng(1.31434638899,103.8658625), type: 'busorange', title: 'Boon Keng Rd', text: ' Bus 31 (ETA 2018-01-06T08:22:41) standing only |  Bus 853 (ETA 2018-01-06T08:26:52) standing only | ' },
+{ position: new google.maps.LatLng(1.31889711409,103.864214862), type: 'busorange', title: 'Bendemeer Rd', text: ' Bus 857 (ETA 2018-01-06T08:33:04) standing only | ' },
+{ position: new google.maps.LatLng(1.3220486156,103.866289822), type: 'busorange', title: 'Bendemeer Rd', text: ' Bus 857 (ETA 2018-01-06T08:31:44) standing only | ' },
+{ position: new google.maps.LatLng(1.32409476572,103.86764196), type: 'busorange', title: 'Bendemeer Rd', text: ' Bus 857 (ETA 2018-01-06T08:30:40) standing only | ' },
+{ position: new google.maps.LatLng(1.3221238056,103.870814313), type: 'busorange', title: 'Geylang Bahru', text: ' Bus 853 (ETA 2018-01-06T08:21:45) standing only | ' },
+{ position: new google.maps.LatLng(1.30941873981,103.867534973), type: 'busorange', title: 'Kallang Rd', text: ' Bus 51 (ETA 2018-01-06T08:32:10) standing only | ' },
+{ position: new google.maps.LatLng(1.30992336178,103.871443447), type: 'busorange', title: 'Geylang Rd', text: ' Bus 51 (ETA 2018-01-06T08:31:26) standing only | ' },
+{ position: new google.maps.LatLng(1.3107770782,103.87363664), type: 'busorange', title: 'Geylang Rd', text: ' Bus 51 (ETA 2018-01-06T08:30:12) standing only | ' },
+{ position: new google.maps.LatLng(1.31251499997,103.873261944), type: 'busorange', title: 'Sims Ave', text: ' Bus 31 (ETA 2018-01-06T08:27:03) standing only | ' },
+{ position: new google.maps.LatLng(1.31214703288,103.877150163), type: 'busorange', title: 'Geylang Rd', text: ' Bus 51 (ETA 2018-01-06T08:28:25) standing only | ' },
+{ position: new google.maps.LatLng(1.31380009198,103.87655394), type: 'busorange', title: 'Sims Ave', text: ' Bus 26 (ETA 2018-01-06T08:22:27) standing only | ' },
+{ position: new google.maps.LatLng(1.31274483593,103.880805167), type: 'busorange', title: 'Geylang Rd', text: ' Bus 51 (ETA 2018-01-06T08:27:05) standing only | ' },
+{ position: new google.maps.LatLng(1.31489775184,103.880951416), type: 'busorange', title: 'Sims Ave', text: ' Bus 26 (ETA 2018-01-06T08:23:56) standing only | ' },
+{ position: new google.maps.LatLng(1.31324473748,103.871430159), type: 'busorange', title: 'Lor 1 Geylang', text: ' Bus 31 (ETA 2018-01-06T08:24:57) standing only |  Bus 853 (ETA 2018-01-06T08:29:07) standing only | ' },
+{ position: new google.maps.LatLng(1.30992065474,103.87599805), type: 'busorange', title: 'Sims Way', text: ' Bus 31 (ETA 2018-01-06T08:29:03) standing only | ' },
+{ position: new google.maps.LatLng(1.30711835522,103.879893732), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 196 (ETA 2018-01-06T08:32:04) standing only | ' },
+{ position: new google.maps.LatLng(1.30749637109,103.879805834), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 31 (ETA 2018-01-06T08:31:04) standing only | ' },
+{ position: new google.maps.LatLng(1.30511398525,103.883120301), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 196 (ETA 2018-01-06T08:30:36) standing only | ' },
+{ position: new google.maps.LatLng(1.31532318661,103.883351733), type: 'busorange', title: 'Sims Ave', text: ' Bus 26 (ETA 2018-01-06T08:25:32) standing only |  Bus 40 (ETA 2018-01-06T08:22:32) standing only | ' },
+{ position: new google.maps.LatLng(1.31359869606,103.884975314), type: 'busorange', title: 'Geylang Rd', text: ' Bus 51 (ETA 2018-01-06T08:25:26) standing only | ' },
+{ position: new google.maps.LatLng(1.3075170373,103.885007501), type: 'busorange', title: 'Old Airport Rd', text: ' Bus 31 (ETA 2018-01-06T08:32:36) standing only | ' },
+{ position: new google.maps.LatLng(1.30845544826,103.888472144), type: 'busorange', title: 'Old Airport Rd', text: ' Bus 31 (ETA 2018-01-06T08:34:03) standing only | ' },
+{ position: new google.maps.LatLng(1.30069808015,103.886432997), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 196 (ETA 2018-01-06T08:28:11) standing only | ' },
+{ position: new google.maps.LatLng(1.30052638901,103.888313333), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 196 (ETA 2018-01-06T08:27:30) standing only | ' },
+{ position: new google.maps.LatLng(1.30314976548,103.884368453), type: 'busorange', title: 'Mountbatten Rd', text: ' Bus 196 (ETA 2018-01-06T08:29:44) standing only | ' },
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map,
+            title: feature.title
+          });
+
+          // Create our info window content
+          var infoWindowContent = '<div class="info_content">' +
+              '<h3>' + feature.title + '</h3>' +
+              '<p>' + feature.text + '</p>' +
+          '</div>';
+
+          // Initialise the info Window
+          var infoWindow = new google.maps.InfoWindow({
+              content: infoWindowContent
+          });
+
+	google.maps.event.addListener(marker, 'click', function() {
+        	infoWindow.open(map, marker);
+	    });
+
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNrTsxaiXiYqNcNdoheNPH27QaKHbOPok&callback=initMap">
+    </script>
+  </body>
+</html>
