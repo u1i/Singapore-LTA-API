@@ -10,7 +10,7 @@ for s in stopsWithLoads:
 
 	for service in svc:
 		if service["load"] == "LSD":
-			svc_str = svc_str + " <font color='red'>Bus " + service["service"] + " (ETA " + str(service["eta"]) + ") full</font> | "
+			svc_str = svc_str + " <font color=red>Bus " + service["service"] + " (ETA " + str(service["eta"]) + ") full</font> | "
 		elif service["load"] == "SDA":
 			svc_str = svc_str + " Bus " + service["service"] + " (ETA " + str(service["eta"]) + ") standing only | "
 	for lookup in stops:
