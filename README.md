@@ -2,12 +2,17 @@
 
 Using open data from Land Transport Authority (LTA) to find out which bus stops at a given time are very popular and result in packed bus services.
 
+## Maps that show buses that are either standing-only or completely full
+
 Here are the [interactive maps with data snapshots](http://lta.sotong.io/maps/) on Google Maps
 
-## How to ?
 ![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
 
+## Analytics
+
 ![](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/analysis/SG-20180105.png)
+
+## How to ?
 
 1 - Request access on the [LTA website](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
 
