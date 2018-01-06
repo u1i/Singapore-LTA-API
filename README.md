@@ -7,6 +7,8 @@ Here are the [interactive maps with data snapshots](http://lta.sotong.io/maps/) 
 ## How to ?
 ![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
 
+![](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/analysis/SG-20180105.png)
+
 1 - Request access on the [LTA website](https://www.mytransport.sg/content/mytransport/home/dataMall.html)
 
 2 - Make sure you read the [Terms of Service](https://www.mytransport.sg/content/mytransport/home/dataMall/apitermsofservice.html)
