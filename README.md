@@ -2,7 +2,7 @@
 
 Using open data from Land Transport Authority (LTA) to find out which bus stops at a given time are very popular and result in packed bus services.
 
-## Maps that show buses that are either standing-only or completely full
+## Maps showing buses that are either standing-only or completely full
 
 Here are the [interactive maps with data snapshots](http://lta.sotong.io/maps/) on Google Maps
 
