@@ -2,7 +2,7 @@
 
 Using open data from Land Transport Authority (LTA) to find out which bus stops at a given time are very popular and result in packed bus services.
 
-Here are the [data snapshots](http://lta.sotong.io/maps/) on Google Maps
+Here are the [interactive maps with data snapshots](http://lta.sotong.io/maps/) on Google Maps
 
 ## How to ?
 ![sample](https://raw.githubusercontent.com/u1i/Singapore-LTA-API/master/sample-map.png)
