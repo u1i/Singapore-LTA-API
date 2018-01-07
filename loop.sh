@@ -15,6 +15,8 @@ do
 	then
 	./generate-map.sh
 	./push.sh
+	else
+		exit
 	fi
 
 	sleep 300
